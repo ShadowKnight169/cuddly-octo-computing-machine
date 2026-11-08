@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101629">
+  <meta name="description" content="A free, private Pokémon TCG Pocket collection tracker. Track your cards, compare packs, build decks and save backups.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>PocketDex — Free Collection Tracker</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="PocketDex home"><span class="brand-mark">◉</span><span class="brand-copy">Pocket<span>Dex</span><small>YOUR COLLECTION COMPANION</small></span></a>
+      <div class="sidebar-heading">YOUR WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button type="button" class="nav-link active" data-page="dashboard"><span class="nav-ico">▦</span><span data-i18n="dashboard">Dashboard</span></button>
+        <button type="button" class="nav-link" data-page="collection"><span class="nav-ico">▤</span><span data-i18n="collection">Collection</span></button>
+        <button type="button" class="nav-link" data-page="packs"><span class="nav-ico">◈</span><span data-i18n="packAdvisor">Pack advisor</span></button>
+        <button type="button" class="nav-link" data-page="quick"><span class="nav-ico">✦</span><span data-i18n="quickAdd">Quick add</span></button>
+        <button type="button" class="nav-link" data-page="decks"><span class="nav-ico">▣</span><span data-i18n="decks">Deck builder</span></button>
+        <button type="button" class="nav-link" data-page="settings"><span class="nav-ico">⚙</span><span data-i18n="settings">Settings & backup</span></button>
+      </nav>
+      <div class="side-bottom">
+        <div class="privacy-bubble"><span>●</span><div><b data-i18n="privateTitle">Private by default</b><small data-i18n="privateDesc">Saved on this device</small></div></div>
+        <div class="side-copy">FAN-MADE · FREE · NO LOGIN</div>
+      </div>
+    </aside>
+    <div class="main-column">
+      <header class="topbar">
+        <div class="top-left"><button class="mobile-menu" id="menu-button" aria-label="Open menu">☰</button><span class="eyebrow">POKÉMON TCG POCKET <span class="slash">/</span> <span id="breadcrumb">DASHBOARD</span></span></div>
+        <div class="top-actions"><span class="online-dot" id="data-status" title="Card database status"></span><button class="small-action" id="language-button" type="button">EN <span>⌄</span></button><button class="avatar" id="settings-button" title="Settings" type="button">PD</button></div>
+      </header>
+      <main class="content" id="content"><div class="loading"><div class="loading-mark">◉</div><h2>Loading PocketDex</h2><p>Fetching your card catalog…</p></div></main>
+      <footer class="footer">PocketDex is an unofficial, fan-made tracker. Not affiliated with Nintendo, The Pokémon Company or DeNA. Card images and names belong to their respective owners.</footer>
+    </div>
+  </div>
+  <nav class="mobile-tabs" aria-label="Mobile navigation">
+    <button type="button" class="mobile-tab active" data-page="dashboard"><span>▦</span><small data-i18n="home">Home</small></button>
+    <button type="button" class="mobile-tab" data-page="collection"><span>▤</span><small data-i18n="cards">Cards</small></button>
+    <button type="button" class="mobile-tab" data-page="packs"><span>◈</span><small data-i18n="packs">Packs</small></button>
+    <button type="button" class="mobile-tab" data-page="decks"><span>▣</span><small data-i18n="decks">Decks</small></button>
+    <button type="button" class="mobile-tab" data-page="settings"><span>⚙</span><small data-i18n="settingsShort">Settings</small></button>
+  </nav>
+  <div class="modal-backdrop hidden" id="modal-backdrop" role="presentation"><div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Card details"></div></div>
+  <div class="toast-container" id="toast-container" role="status" aria-live="polite"></div>
+  <input type="file" id="import-file" accept="application/json,.json" hidden>
+  <script src="app.js" defer></script>
+</body>
+</html>
